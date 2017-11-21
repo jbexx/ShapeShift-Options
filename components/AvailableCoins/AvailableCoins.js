@@ -28,9 +28,8 @@ export default class App extends Component {
     
     const { coins, ready } = this.state
     let mappedCoins;
-
+// need to use a FlatList in the return here instead of this map so that all the results will scroll
     if ( ready ) {
-      console.log('coins ', coins)
       const coinKeys = Object.keys(coins)
       mappedCoins = coinKeys.map( coin => ( <View style={ styles.coin } key={ coins[coin].symbol }>
                                               <Image style={ styles.coinImage } source={ { uri: coins[coin].image } }/>
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
 
   coin: {
     alignItems: 'center',
-    margin: 5
+    margin: 20
   },
 
   coinImage: {
